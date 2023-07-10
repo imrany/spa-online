@@ -13,7 +13,7 @@ const HeroSection=()=>{
         pauseOnHover: true,
     };
     return(
-        <Slider {...settings} className="hero_slide">
+        <Slider {...settings} className="hero_slider">
             <div className="h-[75vh] text-white lg:text-5xl lg:px-16 font-semibold flex lg:pt-[150px]" id="hero-image">
                 <motion.div
                  className="w-[480px]"

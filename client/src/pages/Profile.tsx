@@ -1,6 +1,6 @@
 // @flow strict
 import { useParams } from "react-router-dom"
-function Dashboard() {
+function Profile() {
     const {email}=useParams()
     return (
         <div>
@@ -9,4 +9,4 @@ function Dashboard() {
     );
 };
 
-export default Dashboard;
+export default Profile;

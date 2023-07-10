@@ -1,8 +1,7 @@
 // @flow strict
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
-import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import { useState } from "react";
 import { Usercontext } from "./UserContext";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -31,9 +30,8 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<HomePage/>}/>
-              <Route path="/item" element={<LandingPage/>}/>
               <Route path="/auth/*" element={<Auth/>}/>
-              <Route path="/dashboard/:email" element={<Dashboard/>}/>
+              <Route path="/profile/:email" element={<Profile/>}/>
               <Route path="*" element={<NotFound/>}/>
             </Routes>
           </AnimatePresence>
