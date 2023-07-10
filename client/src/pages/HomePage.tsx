@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Hero from "../components/UI/Hero";
 import Items from "../components/UI/Items";
 import Nav from "../components/UI/Nav";
-import image from "../assets/images/laptop.jpg"
-import image2 from "../assets/images/login-image.jpg"
+import image from "../assets/images/Add-ons.jpg"
+import image2 from "../assets/images/download.jpeg"
 
 function HomePage() {
     const [items,setItems]=useState({
@@ -59,7 +59,7 @@ function HomePage() {
     },[])
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col px-12">
             <Nav/>
             <div className="mt-10 md:px-16 mb-10">
                 <Hero/>

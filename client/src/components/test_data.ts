@@ -1,5 +1,5 @@
-import image from "../assets/images/laptop.jpg"
-import image2 from "../assets/images/login-image.jpg"
+import image from "../assets/images/Add-ons.jpg"
+import image2 from "../assets/images/download.jpeg"
 
 export const products=[
     {

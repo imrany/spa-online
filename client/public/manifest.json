@@ -1,43 +1,13 @@
 {
-  "name":"Oneline mall",
-  "short_name":"Online mall",
-  "description":"Get affordable accessories and commodities here.",
+  "name":"Spa online",
+  "short_name":"Spa online",
+  "description":"Get good massages and other services here.",
   "start_url":"/",
   "id":"/",
   "background_color":"#FFFF",
   "theme_color":"#FFFF",
   "orientation":"portrait-primary",
   "display":"standalone",
-  "shortcuts":[
-    {
-      "name":"Shopping",
-      "short_name":"Shopping",
-      "description":"Start shopping.",
-      "url":"/",
-      "icons":[
-        {
-          "src":"/icons/shortcuts/chat.png",
-          "type":"image/png",
-          "sizes":"96x96",
-          "purpose": "any"
-        }
-      ]
-    },
-    {
-      "name":"Get started",
-      "short_name":"Get started",
-      "description":"Sign up and get the lastest offers",
-      "url":"/settings",
-      "icons":[
-        {
-          "src":"/icons/shortcuts/setting.png",
-          "type":"image/png",
-          "sizes":"96x96",
-          "purpose": "any"
-        }
-      ]
-    }
-  ],
   "icons":[
     {
     "src":"/icons/assistance-72x72.png",

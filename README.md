@@ -79,7 +79,7 @@ It uses the MVC pattern.
 
 Where all database interactions and schemas are located in `Models` folders, `Views` and `Controllers`
 ```bash
-cd online-mall/server
+cd spa-online/server
 npm install
 npm run dev
 ```
