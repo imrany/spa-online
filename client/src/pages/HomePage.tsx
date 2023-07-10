@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Hero from "../components/UI/Hero";
 import Nav from "../components/UI/Nav";
 import About from "../components/UI/About";
+import Products from "../components/UI/Products";
 
 function HomePage() {
     useEffect(()=>{
@@ -19,6 +20,7 @@ function HomePage() {
             </div>
             <div className="mt-10 mb-10">
                 <About/>
+                <Products/>
             </div>
         </div>
     );
