@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html{
+    scroll-behavior: smooth;
+    font-family: 'Roboto';
+}
+body{
+    overflow-x: hidden;
+}
+.preload{
+    background: white url('./assets/Loading_icon.gif') no-repeat center;
+    background-size: 200px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 200;
+    display: none;
+}
+.close,#step2{
+    display: none;
+}
+dialog{
+    opacity: 0;
+    scale: 0;
+    display: block;
+    transition: all 0.5s;
+}
+dialog[open]{
+    opacity: 1;
+    scale: 1.2;
+}
+.hero__slider {
+    width:50vw;
+    overflow: hidden;
+}
+#login-item2{
+    background: linear-gradient(rgba(37, 0, 107, 0.5), rgba(23, 0, 51, 0.5)),
+    url("./assets/images/login-image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#login-item3{
+    background: linear-gradient(rgba(37, 0, 107, 0.5), rgba(23, 0, 51, 0.5)),
+    url("./assets/images/laptop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* dialog::backdrop{
+    background-color: rgb(122, 14, 223, 0.2);
+} */
+#hero_slide{
+    width:100vw;
+    overflow: hidden;
+}
+#hero-image{
+    background: linear-gradient(rgba(9, 1, 24, 0.4), rgba(17, 2, 36, 0.2)),
+    url("./assets/images/login-image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#hero-image1{
+    background: linear-gradient(rgba(5, 2, 12, 0.5), rgba(4, 1, 8, 0.5)),
+    url("./assets/images/laptop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#hero-image2{
+    background: linear-gradient(rgba(9, 1, 24, 0.4), rgba(17, 2, 36, 0.2)),
+    url("./assets/images/laptop.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width:1000px) {
+    .sec, #nav-items{
+        display: none;
+    }
+   
+}
