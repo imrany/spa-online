@@ -1,5 +1,5 @@
 import image from "../assets/images/Add-ons.jpg"
-import image2 from "../assets/images/download.jpeg"
+import image2 from "../assets/images/bg-stone.jpg"
 
 export const products=[
     {

@@ -61,7 +61,7 @@ function HomePage() {
     return (
         <div className="flex flex-col px-12">
             <Nav/>
-            <div className="mt-10 md:px-16 mb-10">
+            <div className="mt-10 mb-10">
                 <Hero/>
                 <Items details={items}/>
             </div>

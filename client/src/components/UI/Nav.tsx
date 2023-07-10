@@ -9,7 +9,7 @@ function Nav() {
     
     return (
         <nav className="flex justify-between py-6 border-b-[1px]" style={{borderBottomColor:"#8o8o8o"}}>
-           <div className="font-bold text-2xl text-[#333333]" id='logo'>Spa online</div>
+           <Link to="/" className="font-bold text-2xl text-[#333333]" id='logo'>Spa online</Link>
            <div className="flex text-base" style={{color:"#808080"}}>
                 <Link to="/" className='hover:text-[#333333]'>Home</Link>
                 <a href="#about" className='hover:text-[#333333] px-4'>About</a>
@@ -17,11 +17,11 @@ function Nav() {
                 <Link to="/features" className='hover:text-[#333333]'>Features</Link>
            </div>
            <div className="flex text-base" style={{color:"#808080"}}>
-                <Link to="/">
-                    <i className='ri-search-line hover:text-[#333333]'></i>
+                <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                    <i className='ri-search-line'></i>
                 </Link>
-                <Link to="/">
-                    <i className='ri-notification-line pl-4 hover:text-[#333333]'></i>
+                <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                    <i className='ri-notification-line'></i>
                 </Link>
            </div>
         </nav>
