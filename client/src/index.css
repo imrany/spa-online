@@ -80,7 +80,20 @@ dialog[open]{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+#about-slider-image-1{
+    background:linear-gradient(rgba(9, 1, 24, 0.2), rgba(17, 2, 36, 0.2)),
+    url("./assets/images/Add-ons.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#about-slider-image-2{
+    background:linear-gradient(rgba(9, 1, 24, 0.2), rgba(17, 2, 36, 0.2)),
+    url("./assets/images/bg-plants.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 @media screen and (max-width:1000px) {
     .sec, #nav-items{
         display: none;

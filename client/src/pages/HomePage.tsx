@@ -10,10 +10,14 @@ function HomePage() {
     },[])
 
     return (
-        <div className="flex flex-col lg:px-12">
-            <Nav/>
+        <div className="flex flex-col">
+            <div className="lg:px-12">
+                <Nav/>
+                <div className="mt-10">
+                   <Hero/>
+                </div>
+            </div>
             <div className="mt-10 mb-10">
-                <Hero/>
                 <About/>
             </div>
         </div>

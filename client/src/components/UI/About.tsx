@@ -1,17 +1,7 @@
-import Slider from "react-slick";
 import {motion} from "framer-motion"
+import AboutSlider from "./AboutSlider";
 
 const About=()=>{
-    const settings = {
-        // fade: true,
-        speed: 2000,
-        autoplaySpeed: 3000,
-        infinite: true,
-        autoplay: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        pauseOnHover: true,
-    };
     return(
         <motion.div 
          initial={{opacity:0}}
@@ -23,13 +13,7 @@ const About=()=>{
                 Using the power of natural product for great results
             </p>
 
-            <div className="">
-                <Slider {...settings} className="hero_slider">
-                <div className="h-[75vh]" id="hero-image2">
-                    <p></p>
-                </div>
-                </Slider>
-            </div>
+            <AboutSlider/>
         </motion.div>
     )
 }
