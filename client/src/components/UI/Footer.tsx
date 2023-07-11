@@ -48,16 +48,22 @@ function Footer() {
 
                 <div className="">
                     <p className="text-2xl text-[#333333] font-semibold md:mb-4 max-md:mt-4 max-md:mb-2">Social media</p>
-                    <div className="flex text-[#808080]">
-                        <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                    <div className="flex text-[#808080] text-lg">
+                        <a href="https://instagram.com/imrany00" target="_blank" rel="noopener noreferrer" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
                             <i className='ri-instagram-line'></i>
-                        </Link>
-                        <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                        </a>
+                        <a href="https://twitter.com/matano_imran" target="_blank" rel="noopener noreferrer" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
                             <i className='ri-twitter-fill'></i>
-                        </Link>
-                        <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                        </a>
+                        <a href="https://www.linkedin.com/in/imranmatano/" target="_blank" rel="noopener noreferrer" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
                             <i className='ri-linkedin-fill'></i>
-                        </Link>
+                        </a>
+                        <a href="https://wa.me/254734720752" target="_blank" rel="noopener noreferrer" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                            <i className='ri-whatsapp-fill'></i>
+                        </a>
+                        <a href="https://github.com/imrany" target="_blank" rel="noopener noreferrer" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                            <i className='ri-github-fill'></i>
+                        </a>
                     </div>
                 </div>
             </div>
