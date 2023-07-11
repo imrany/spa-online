@@ -3,7 +3,7 @@ import Slider from "react-slick";
 const AboutSlider=()=>{
     const settings = {
         // fade: true,
-        speed: 2000,
+        speed: 1500,
         // autoplaySpeed: 3000,
         infinite: true,
         // autoplay: true,
