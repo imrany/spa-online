@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { AnimatePresence } from "framer-motion"
 import Auth from "./pages/Auth";
 import HomePage from "./pages/HomePage";
+import UserLogin from "./components/Dialogs/UserLogin";
 const queryClient=new QueryClient()
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
               <Route path="*" element={<NotFound/>}/>
             </Routes>
           </AnimatePresence>
+          <UserLogin/>
         </Router>
       </Usercontext.Provider>
     </QueryClientProvider>

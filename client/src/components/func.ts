@@ -1,16 +1,3 @@
-class $Dialog {
-    element:HTMLDialogElement
-    constructor(element:HTMLDialogElement) {
-        this.element=element
-    }
-    open(){
-        this.element.showModal()
-    }
-    close(){
-        this.element.close()
-    }
-}
-
 const operations={
     reload:()=>{
         window.location.reload()
@@ -39,6 +26,5 @@ const loader={
 
 export{
     loader,
-    $Dialog,
     operations
 }

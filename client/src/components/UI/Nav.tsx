@@ -15,6 +15,12 @@ function Nav() {
         const menu=document.getElementById("menu") as HTMLDivElement;
         menu.style.display="none"
     }
+    
+
+    function dialog_open(){
+        const dialogElement=document.getElementById("user-dialog") as HTMLDialogElement
+        dialogElement.showModal()
+    }
     return (
         <>
             <nav className="flex justify-between py-6 border-b-[1px] max-lg:px-4" style={{borderBottomColor:"#8o8o8o"}}>
@@ -32,6 +38,9 @@ function Nav() {
                         <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
                             <i className='ri-notification-line'></i>
                         </Link>
+                        <div onClick={dialog_open} className='hover:bg-[#333333] cursor-pointer hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                            <i className='ri-user-smile-line'></i>
+                        </div>
                 </div>
 
                 <div className="text-[#333333]" id='nav-menu' onClick={openNav}>
@@ -46,6 +55,7 @@ function Nav() {
                         <a href="#about" className='hover:text-[#808080] py-2'>About</a>
                         <Link to="/products" className='hover:text-[#808080] py-2'>Products</Link>
                         <Link to="/features" className='hover:text-[#808080] py-2'>Features</Link>
+                        <Link to="/auth" className='hover:text-[#808080] py-2'>Sign in</Link>
                     </div>
                 </div>
             </div>
