@@ -18,7 +18,7 @@ function HomePage() {
                 <Nav/>
                 <Hero/>
             </div>
-            <div className="mt-10 mb-10">
+            <div className="sm:mt-10 mb-10">
                 <About/>
                 <Products/>
                 <JoinUs/>

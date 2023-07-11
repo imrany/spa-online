@@ -12,10 +12,10 @@ const AboutSlider=()=>{
         pauseOnHover: true,
     };
     return(
-        <Slider {...settings} className="hero_slider mt-10 w-[70vw]">
-            <div className="h-[75vh] z-50" id="about-slider-image-1">
+        <Slider {...settings} className="hero_slider mt-10 w-[70vw] max-md:w-[80vw]">
+            <div className="h-[75vh] max-md:h-[50vh] z-50" id="about-slider-image-1">
             </div>
-            <div className="h-[75vh] z-50" id="about-slider-image-2">
+            <div className="h-[75vh] max-md:h-[50vh] z-50" id="about-slider-image-2">
             </div>
         </Slider>
     )
