@@ -49,7 +49,7 @@ const Products=()=>{
                 {products&&products.map((i,n)=>(
                     <div className="flex flex-col w-[25vw] max-md:w-[50vw] max-sm:w-[80vw]" key={n}>
                         <a href={i.image} target="_blank" rel="noopener noreferrer" title={i.title}>
-                            <img src={i.image} alt={`${i.title}`} className="max-md:h-[30vh] w-full max-h-[50vh]"/>
+                            <img src={i.image} alt={`${i.title}`} className="max-md:h-[35vh] w-full max-h-[50vh]"/>
                         </a>
                         <p className="mt-10 text-[#333333]">
                             {i.title}
