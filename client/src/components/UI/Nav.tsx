@@ -51,11 +51,26 @@ function Nav() {
             <div className="fixed top-0 text-xl bottom-0 left-0 right-0 bg-[#FFFCF8] z-50" onClick={closeNav} id='menu'>
                 <div className="flex flex-col h-full font-semibold items-center text-[#333333] justify-center">
                     <div className="flex flex-col">
-                        <Link to="/" className='hover:text-[#808080]'>Home</Link>
-                        <a href="#about" className='hover:text-[#808080] py-2'>About</a>
-                        <Link to="/products" className='hover:text-[#808080] py-2'>Products</Link>
-                        <Link to="/features" className='hover:text-[#808080] py-2'>Features</Link>
-                        <Link to="/auth" className='hover:text-[#808080] py-2'>Sign in</Link>
+                        <Link to="/" className='hover:text-[#808080]'>
+                            <i className="ri-home-smile-line mr-2"></i>
+                            Home
+                        </Link>
+                        <a href="#about" className='hover:text-[#808080] py-2'>
+                            <i className="ri-hashtag mr-2"></i>
+                            About
+                        </a>
+                        <Link to="/products" className='hover:text-[#808080] py-2'>
+                            <i className="ri-product-hunt-line mr-2"></i>
+                            Products
+                        </Link>
+                        <Link to="/features" className='hover:text-[#808080] py-2'>
+                            <i className="ri-quill-pen-line mr-2"></i>
+                            Features
+                        </Link>
+                        <Link to="/auth" className='hover:text-[#808080] py-2'>
+                            <i className="ri-account-circle-line mr-2"></i>
+                            Sign in
+                        </Link>
                     </div>
                 </div>
             </div>

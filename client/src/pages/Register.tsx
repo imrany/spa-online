@@ -27,10 +27,19 @@ function Register() {
         }
     }
     const next=()=>{
-        const step_1=document.getElementById("step1") as HTMLDivElement
-        const step_2=document.getElementById("step2") as HTMLDivElement
-        step_1.style.display="none"
-        step_2.style.display="flex"
+        const form=document.querySelector("form") as HTMLFormElement;
+        const phone_number=form.phone_number.value;
+        const first_name=form.first_name.value;
+        const last_name=form.last_name.value;
+        if (phone_number&&first_name&&last_name) {
+            const step_1=document.getElementById("step1") as HTMLDivElement
+            const step_2=document.getElementById("step2") as HTMLDivElement
+            step_1.style.display="none"
+            step_2.style.display="flex"
+        } else {
+            alert("Enter all the required field")
+        }
+
     }
     return (
         <div className="w-[50vw] flex flex-col items-center text-[#333333] max-[1000px]:w-[100vw] justify-center">

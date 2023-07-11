@@ -29,7 +29,7 @@ function Auth() {
                                 <i className="ri-star-fill ml-2"></i>
                                 <i className="ri-star-fill ml-2"></i>
                             </div>
-                            <p className="w-[40vw]">Online mall made me shop online with confidence, it has a money back guarentee which is offer when a costumer doesn't receive his/her goods within 7 days.</p>
+                            <p className="w-[40vw]">Welcome to Spa online, we use natural products made on palm oil, coconut oil and aloe vera for great results.</p>
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@ function Auth() {
                                 <i className="ri-heart-fill ml-2"></i>
                                 <i className="ri-heart-fill ml-2"></i>
                             </div>
-                            <p className="w-[40vw]">Online mall gives amazing offers and deals to active customers and sellers every thursdays and friday.</p>
+                            <p className="w-[40vw]">Enjoy our quality services, book a thepary or massage section here. You can also have a more personalized experience by signing up here.</p>
                         </div>
                     </div>
                 </Slider>

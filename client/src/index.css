@@ -39,14 +39,14 @@ dialog[open]{
     overflow: hidden;
 }
 #login-item2{
-    background: linear-gradient(rgba(37, 0, 107, 0.5), rgba(23, 0, 51, 0.5)),
+    background: linear-gradient(rgba(9, 1, 24, 0.3), rgba(17, 2, 36, 0.3)),
     url("./assets/images/Add-ons.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 #login-item3{
-    background: linear-gradient(rgba(37, 0, 107, 0.5), rgba(23, 0, 51, 0.5)),
+    background: linear-gradient(rgba(9, 1, 24, 0.3), rgba(17, 2, 36, 0.3)),
     url("./assets/images/bg-plants.jpg");
     background-position: center;
     background-repeat: no-repeat;
