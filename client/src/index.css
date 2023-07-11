@@ -100,7 +100,7 @@ dialog[open]{
     background-repeat: no-repeat;
     background-size: cover;
 }
-#nav-menu{
+#nav-menu,#menu{
     display: none;
 }
 @media screen and (max-width:768px) {
