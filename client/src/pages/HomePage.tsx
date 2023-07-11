@@ -5,6 +5,7 @@ import Nav from "../components/UI/Nav";
 import About from "../components/UI/About";
 import Products from "../components/UI/Products";
 import JoinUs from "../components/UI/JoinUs";
+import Footer from "../components/UI/Footer";
 
 function HomePage() {
     useEffect(()=>{
@@ -22,6 +23,7 @@ function HomePage() {
                 <Products/>
                 <JoinUs/>
             </div>
+            <Footer/>
         </div>
     );
 };
