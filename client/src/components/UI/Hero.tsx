@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Hero=()=>{
     return(
-            <div className="h-[75vh] text-white lg:text-5xl lg:px-16 font-semibold flex items-center" id="hero-image1">
+            <div className="mt-10 h-[75vh] text-white lg:text-5xl lg:px-16 font-semibold flex items-center" id="hero-image1">
                 <motion.div 
                 className="lg:w-[550px]"
                 initial={{y:1000}}

@@ -1,12 +1,8 @@
-import {motion} from "framer-motion"
 import AboutSlider from "./AboutSlider";
 
 const About=()=>{
     return(
-        <motion.div 
-         initial={{opacity:0}}
-         whileInView={{opacity:1}}
-         transition={{duration:5}} 
+        <div
          className="flex py-20 flex-col items-center bg-[#F3EBE1]" id="about">
             <p className="text-xl font-semibold text-[#F45858]"> About Us </p>
             <p className="text-4xl text-center mt-6 font-semibold w-[50vw]  text-[#333333]">
@@ -14,7 +10,7 @@ const About=()=>{
             </p>
 
             <AboutSlider/>
-        </motion.div>
+        </div>
     )
 }
 export default About;

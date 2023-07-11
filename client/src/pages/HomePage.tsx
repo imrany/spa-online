@@ -4,6 +4,7 @@ import Hero from "../components/UI/Hero";
 import Nav from "../components/UI/Nav";
 import About from "../components/UI/About";
 import Products from "../components/UI/Products";
+import JoinUs from "../components/UI/JoinUs";
 
 function HomePage() {
     useEffect(()=>{
@@ -14,13 +15,12 @@ function HomePage() {
         <div className="flex flex-col">
             <div className="lg:px-12">
                 <Nav/>
-                <div className="mt-10">
-                   <Hero/>
-                </div>
+                <Hero/>
             </div>
             <div className="mt-10 mb-10">
                 <About/>
                 <Products/>
+                <JoinUs/>
             </div>
         </div>
     );

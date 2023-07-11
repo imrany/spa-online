@@ -2,7 +2,7 @@
 
 function Footer() {
     return (
-        <footer>
+        <footer className="flex py-20 justify-between px-12 items-center bg-[#F3EBE1]">
             
         </footer>
     );

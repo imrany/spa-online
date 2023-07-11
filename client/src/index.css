@@ -94,6 +94,12 @@ dialog[open]{
     background-repeat: no-repeat;
     background-size: cover;
 }
+#join-us{
+    background:url("./assets/images/bg-flowers.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 @media screen and (max-width:1000px) {
     .sec, #nav-items{
         display: none;
