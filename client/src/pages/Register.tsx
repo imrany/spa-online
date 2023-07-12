@@ -6,20 +6,9 @@ import { Link } from "react-router-dom"
 function Register() {
     const [error,setError]=useState("")
     const [location,setLocation]=useState("")
-    const successCallback=(position:any)=>{
-        const {latitude, longitude}= position.coords;
-        setLocation(`${latitude},${longitude}`)
-        console.log(latitude,longitude)
-    }
-    const errorCallback=(error:any)=>{
-        setLocation(error.message);
-        console.log(error.message);
-    }
+    
     function checkLocation() {
-        // if(!navigator.geolocation.getCurrentPosition){
-        //     console.log("navigator.geolocation.getCurrentPosition");
-        // }
-        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        setLocation(`${localStorage.getItem("location")}`)
     }
     const handleSubmit=async(e:any)=>{
         e.preventDefault()

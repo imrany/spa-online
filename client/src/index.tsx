@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import "remixicon/fonts/remixicon.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./webaccess";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
