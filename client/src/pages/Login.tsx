@@ -65,7 +65,7 @@ function Login() {
                     <input type="email" name="email" className="mt-2 border-gray-300 border-[1px] bg-white focus:bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter email address" required/>
                     <label htmlFor="email" className="flex justify-between mt-4">
                         <span className="text-[#808080] font-semibold text-lg max-md:text-base">Password</span>
-                        <Link className="text-[#b18121] max-md:text-sm" to="/">Forget your password?</Link>
+                        <Link className="text-[#b18121] max-md:text-sm" to="/auth/update_password">Forgot your password?</Link>
                     </label>
                     <input type="password" minLength={8} name="password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter password" required/>
                     <button className="bg-[#f0b369] text-white mt-6 py-3 rounded-lg cursor-pointer text-base font-semibold">Sign in</button>
