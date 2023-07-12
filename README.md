@@ -39,7 +39,7 @@ Developing both the client and server would take approximately one and half mont
 
 We would dedicate around 3hrs daily in development.
 
-Starting 22nd June Thursday - 
+Starting 10th July Monday - 
 
 <!-- <details>
 <summary></summary>
