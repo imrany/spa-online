@@ -83,12 +83,12 @@ function Register() {
                     <label htmlFor="email" className="text-[#808080] font-semibold text-lg max-md:text-base">Email</label>
                     <input type="email" name="email" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter email address" required/>
                     <label htmlFor="password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4">Password</label>
-                    <input type="password" name="password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter password" required/>
+                    <input type="password" minLength={8}  name="password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter password" required/>
                     <label htmlFor="confirm_password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4 flex justify-between">
                         <span>confirm password</span>
                         <span className="text-center text-sm text-red-400 font-normal max-md:text-xs">{error}</span>
                     </label>
-                    <input type="password" name="confirm_password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="confirm password" required/>
+                    <input type="password" minLength={8} name="confirm_password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="confirm password" required/>
                     <button className="bg-[#f0b369] text-white mt-6 py-3 rounded-lg cursor-pointer text-base font-semibold">Create account</button>
                 </div>
 
