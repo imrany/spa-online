@@ -4,6 +4,9 @@ import { useState } from "react";
 
 
 function BookingForm() {
+    const date=new Date()
+    const date_time=`${date.getHours()}:${date.getMinutes()} - ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+    
     const [error,setError]=useState(<p className="text-center text-lg">Reserve your spot</p>)
     const dialog_close=()=>{
         const dialogElement=document.getElementById("booking-dialog") as HTMLDialogElement
@@ -25,7 +28,8 @@ function BookingForm() {
                 body:JSON.stringify({
                     username,
                     phone_number,
-                    email
+                    email,
+                    date_time
                 })
             })
             const parseRes=await response.json();
