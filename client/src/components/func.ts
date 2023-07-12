@@ -26,5 +26,5 @@ const loader={
 
 export{
     loader,
-    operations
+    operations,
 }

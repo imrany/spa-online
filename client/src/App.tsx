@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion"
 import Auth from "./pages/Auth";
 import HomePage from "./pages/HomePage";
 import UserLogin from "./components/Dialogs/UserLogin";
+import BookingForm from "./components/Dialogs/BookingForm";
 const queryClient=new QueryClient()
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             </Routes>
           </AnimatePresence>
           <UserLogin/>
+          <BookingForm/>
         </Router>
       </Usercontext.Provider>
     </QueryClientProvider>

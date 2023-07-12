@@ -2,6 +2,10 @@ import {motion} from "framer-motion"
 import { Link } from "react-router-dom"
 
 const Hero=()=>{
+    function dialog_open(){
+        const dialogElement=document.getElementById("booking-dialog") as HTMLDialogElement
+        dialogElement.showModal()
+    }
     return(
             <div className="md:mt-10 h-[75vh] text-white  text-5xl lg:px-16 font-semibold flex items-center max-lg:justify-center max-lg:text-center" id="hero-image1">
                 <motion.div 
@@ -14,9 +18,9 @@ const Hero=()=>{
                     <p className="mt-4 text-base w-[400px] text-[#FFFCF8] max-sm:w-[70vw]">
                         We use premium products for a more natural result.
                     </p>
-                    <Link to="/auth" className="bg-[#f0b369] hover:bg-[#F7B941] text-white py-[8px] mt-8 text-base px-6 rounded-[50px]">
+                    <button onClick={dialog_open} className="bg-[#f0b369] hover:bg-[#F7B941] text-white py-[8px] mt-8 text-base px-6 rounded-[50px]">
                         Get started
-                    </Link>
+                    </button>
                 </motion.div>
             </div>
     )
