@@ -10,6 +10,7 @@ import Auth from "./pages/Auth";
 import HomePage from "./pages/HomePage";
 import UserLogin from "./components/Dialogs/UserLogin";
 import BookingForm from "./components/Dialogs/BookingForm";
+import { status } from "./components/status";
 const queryClient=new QueryClient()
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     first_name:"",
     phone_number:0,
     email:"",
-    token:""
+    token:"",
   })
   return (
     <QueryClientProvider client={queryClient}>
@@ -38,7 +39,7 @@ function App() {
             </Routes>
           </AnimatePresence>
           <UserLogin/>
-          <BookingForm/>
+          <BookingForm status={status()}/>
         </Router>
       </Usercontext.Provider>
     </QueryClientProvider>

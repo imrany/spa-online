@@ -9,5 +9,4 @@ interface User_content{
 
 export type{
     User_content,
-
 }
