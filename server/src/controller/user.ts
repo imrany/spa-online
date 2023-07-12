@@ -7,7 +7,7 @@ import { createTransport } from "nodemailer"
 
 async function register_user(req:User_register,res:any){
     try {
-        const {last_name,first_name,email,phone_number,password}=req.body
+        const {last_name,first_name,email,phone_number,password,location}=req.body
         const check_user_exist=user_model.findOne({email})
         if(!check_user_exist){
             if(last_name&&first_name&&email&&phone_number&&password){
@@ -18,7 +18,8 @@ async function register_user(req:User_register,res:any){
                     first_name,
                     email,
                     phone_number,
-                    password:hashed_password
+                    password:hashed_password,
+                    location
                 })
                 if(register_user){
                     res.status(201).send({
@@ -29,6 +30,7 @@ async function register_user(req:User_register,res:any){
                             first_name:register_user.first_name,
                             email:register_user.email,
                             phone_number:register_user.phone_number,
+                            location:register_user.location,
                             token:generateUserToken(register_user.id)
                         }
                     })
@@ -60,6 +62,7 @@ async function login_user(req:User_login,res:any){
                         last_name:user.last_name,
                         email:user.email, 
                         phone_number:user.phone_number,
+                        location:user.location,
                         token:generateUserToken(user.id)
                     }
                 })

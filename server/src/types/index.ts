@@ -4,7 +4,8 @@ interface User_register{
         first_name:string,
         email:string,
         phone_number:number,
-        password:string
+        password:string,
+        location:string
     }
 }
 interface User_login{

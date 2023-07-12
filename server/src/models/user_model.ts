@@ -21,6 +21,10 @@ const user_schema=new Schema({
     password:{
         type:String,
         require:true
+    },
+    location:{
+        type:String,
+        require:true
     }
 },{
     timestamps:true
