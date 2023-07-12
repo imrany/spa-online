@@ -20,7 +20,7 @@ async function register_user(req:User_register,res:any){
                     password:hashed_password
                 })
                 if(register_user){
-                    res.status(200).send({
+                    res.status(201).send({
                         msg:"User registered",
                         user_data:{
                             id:register_user.id,
@@ -32,10 +32,10 @@ async function register_user(req:User_register,res:any){
                         }
                     })
                 }else{
-                    res.status(204).send({error:"User not registered"})
+                    res.status(401).send({error:"User not registered"})
                 }
             }else{
-                res.status(401).send({error:"Enter all the required fields!"})
+                res.status(400).send({error:"Enter all the required fields!"})
             }
         }else{
             res.send({error:"Cannot register this user, this user exist!!"})
@@ -80,7 +80,7 @@ async function reserve (req:any,res:any) {
             email,phone_number,username,date_time
         })
         if(!book){
-            res.status(401).send({error:"Cannot place spot, try again later!"})
+            res.status(501).send({error:"Cannot place spot, try again later!"})
         }
     } catch (error:any) {
         res.status(500).send({error:error.message})
