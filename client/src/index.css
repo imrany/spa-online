@@ -103,6 +103,9 @@ dialog[open]{
 #nav-menu,#menu{
     display: none;
 }
+#location_checkbox{
+    accent-color: #f0b369;
+}
 @media screen and (max-width:768px) {
     #nav-items,.sec{
         display: none;

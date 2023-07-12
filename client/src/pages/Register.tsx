@@ -5,6 +5,22 @@ import { Link } from "react-router-dom"
 
 function Register() {
     const [error,setError]=useState("")
+    const [location,setLocation]=useState("")
+    const successCallback=(position:any)=>{
+        const {latitude, longitude}= position.coords;
+        setLocation(`${latitude},${longitude}`)
+        console.log(latitude,longitude)
+    }
+    const errorCallback=(error:any)=>{
+        setLocation(error.message);
+        console.log(error.message);
+    }
+    function checkLocation() {
+        // if(!navigator.geolocation.getCurrentPosition){
+        //     console.log("navigator.geolocation.getCurrentPosition");
+        // }
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    }
     const handleSubmit=async(e:any)=>{
         e.preventDefault()
         try {
@@ -26,7 +42,8 @@ function Register() {
                         last_name,
                         email,
                         phone_number,
-                        password:confirm_password
+                        password:confirm_password,
+                        location
                     })
                 })
                 const parseRes=await response.json()
@@ -76,7 +93,7 @@ function Register() {
                     <label htmlFor="last_name" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4">Last name</label>
                     <input type="text" name="last_name" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter your last name" required/>
                     <label htmlFor="phone_number" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4">Phone number</label>
-                    <input type="tel" name="phone_number" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="257xxxxxxxxx" required/>
+                    <input type="number" name="phone_number" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="257xxxxxxxxx" required/>
                     <button type="button" className="bg-[#f0b369] text-white mt-6 py-3 rounded-lg cursor-pointer text-base font-semibold" onClick={next}>Next step</button>
                 </div>
                 <div className="flex flex-col" id="step2">
@@ -89,6 +106,10 @@ function Register() {
                         <span className="text-center text-sm text-red-400 font-normal max-md:text-xs">{error}</span>
                     </label>
                     <input type="password" minLength={8} name="confirm_password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="confirm password" required/>
+                    <label htmlFor="location_checkbox" className="text-[#808080] text-base mt-4 flex">
+                        <input type="checkbox" name="location" id="location_checkbox" onClick={checkLocation}/>
+                        <span className="ml-2">Turn on location</span>
+                    </label>
                     <button className="bg-[#f0b369] text-white mt-6 py-3 rounded-lg cursor-pointer text-base font-semibold">Create account</button>
                 </div>
 
