@@ -2,6 +2,7 @@ import { user_model } from "../models/user_model"
 import * as bcrypt from "bcryptjs"
 import * as jwt from "jsonwebtoken"
 import { User_login, User_register } from "../types"
+import { reserve_model } from "../models/reserve_model"
 
 async function register_user(req:User_register,res:any){
     try {
@@ -40,7 +41,7 @@ async function register_user(req:User_register,res:any){
             res.send({error:"Cannot register this user, this user exist!!"})
         }
     } catch (error:any) {
-        res.status(500).send({error:error.mess})
+        res.status(500).send({error:error.message})
     }
 }
 
@@ -68,7 +69,21 @@ async function login_user(req:User_login,res:any){
             res.status(401).send({error:"Enter all the required fields!"})
         }
     } catch (error:any) {
-        res.status(500).send({error:error.mess})
+        res.status(500).send({error:error.message})
+    }
+}
+
+async function reserve (req:any,res:any) {
+    try {
+        const {email,phone_number,username,date_time}=req.body
+        const book=await reserve_model.create({
+            email,phone_number,username,date_time
+        })
+        if(!book){
+            res.status(401).send({error:"Cannot place spot, try again later!"})
+        }
+    } catch (error:any) {
+        res.status(500).send({error:error.message})
     }
 }
 
@@ -102,5 +117,6 @@ async function protect_user(req:any,res:any,next:any){
 export {
     register_user,
     login_user,
-    protect_user
+    protect_user,
+    reserve
 }
