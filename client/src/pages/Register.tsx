@@ -1,26 +1,42 @@
 // @flow strict
 import {motion} from "framer-motion"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function Register() {
+    const [error,setError]=useState("")
     const handleSubmit=async(e:any)=>{
         e.preventDefault()
         try {
-            let url=``
-            const response=await fetch(url,{
-                method:"POST",
-                headers:{
-                    "content-type":"application/json"
-                },
-                body:JSON.stringify({
-
+            const phone_number=e.target.phone_number.value;
+            const first_name=e.target.first_name.value;
+            const last_name=e.target.last_name.value;
+            const email=e.target.email.value;
+            const password=e.target.password.value;
+            const confirm_password=e.target.confirm_password.value;
+            if(password===confirm_password){
+                let url=``
+                const response=await fetch(url,{
+                    method:"POST",
+                    headers:{
+                        "content-type":"application/json"
+                    },
+                    body:JSON.stringify({
+                        first_name,
+                        last_name,
+                        email,
+                        phone_number,
+                        password:confirm_password
+                    })
                 })
-            })
-            const parseRes=await response.json()
-            if(parseRes.error){
-                console.log(parseRes.error)
+                const parseRes=await response.json()
+                if(parseRes.error){
+                    console.log(parseRes.error)
+                }else{
+                    console.log(parseRes)
+                }
             }else{
-                console.log(parseRes)
+                setError("Doesn't match with password!")
             }
         } catch (error:any) {
             console.log(error.message)
@@ -68,7 +84,10 @@ function Register() {
                     <input type="email" name="email" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter email address" required/>
                     <label htmlFor="password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4">Password</label>
                     <input type="password" name="password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter password" required/>
-                    <label htmlFor="confirm_password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4">confirm password</label>
+                    <label htmlFor="confirm_password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4 flex justify-between">
+                        <span>confirm password</span>
+                        <span className="text-center text-sm text-red-400 font-normal max-md:text-xs">{error}</span>
+                    </label>
                     <input type="password" name="confirm_password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="confirm password" required/>
                     <button className="bg-[#f0b369] text-white mt-6 py-3 rounded-lg cursor-pointer text-base font-semibold">Create account</button>
                 </div>
