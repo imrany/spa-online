@@ -41,7 +41,7 @@ function BookingForm() {
         }
     }
     return (
-        <dialog id="booking-dialog" className="shadow-lg rounded-md flex flex-col lg:w-[35vw] max-md:w-[80vw] max-sm:w-[75vw] h-fit text-[#808080] max-sm:scale-[0.5]">
+        <dialog id="booking-dialog" className="shadow-lg rounded-md flex flex-col lg:w-[35vw] max-md:w-[80vw] max-sm:w-[75vw] h-fit text-[#808080] scale-[0.9]">
             <button  className="ml-[auto]" onClick={dialog_close}>
                 <i className="ri-close-fill ri-lg hover:text-[#F45858]"></i>
             </button>

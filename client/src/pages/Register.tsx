@@ -42,7 +42,7 @@ function Register() {
 
     }
     return (
-        <div className="w-[50vw] flex flex-col items-center text-[#333333] max-[1000px]:w-[100vw] justify-center">
+        <div className="w-[50vw] flex flex-col items-center text-[#333333] max-[1000px]:w-[100vw] justify-center max-sm:mb-4">
             <motion.form 
                 className="w-[35vw] max-md:w-[90vw]" onSubmit={handleSubmit}
                 initial={{ x: 1000 }}
@@ -50,8 +50,8 @@ function Register() {
                 exit={{ x: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="my-4 mb-8 max-md:mb-12">
-                    <p className="text-4xl font-semibold">Create an account</p>
+                <div className="my-4 mb-8">
+                    <p className="text-4xl max-sm:text-xl font-semibold">Create an account</p>
                     <p className="text-lg text-gray-400 max-md:text-base">Sign up and get started.</p>
                 </div>
                 <div className="flex flex-col" id="step1">

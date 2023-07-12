@@ -55,8 +55,8 @@ function Login() {
                 variants={variants}
                 className="mx-8"
             >
-                <div className="my-4 mb-10 max-md:mb-14">
-                    <p className="text-4xl font-semibold">Welcome Back!</p>
+                <div className="my-4 mb-10">
+                    <p className="text-4xl max-sm:text-xl font-semibold">Welcome Back!</p>
                     <p className="text-lg text-[#808080] max-md:text-base">Login and get personal experience.</p>
                 </div>
 
