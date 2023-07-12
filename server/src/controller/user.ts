@@ -3,6 +3,7 @@ import * as bcrypt from "bcryptjs"
 import * as jwt from "jsonwebtoken"
 import { User_login, User_register } from "../types"
 import { reserve_model } from "../models/reserve_model"
+import { createTransport } from "nodemailer"
 
 async function register_user(req:User_register,res:any){
     try {
@@ -79,8 +80,27 @@ async function reserve (req:any,res:any) {
         const book=await reserve_model.create({
             email,phone_number,username,date_time
         })
-        if(!book){
-            res.status(501).send({error:"Cannot place spot, try again later!"})
+        if(book){
+            let mailTranporter=createTransport({
+                service:'gmail',
+                auth:{
+                    user:process.env.TRANSPORTER,
+                    pass:process.env.PASSWORD
+                }
+            });
+            let details={
+                from:process.env.TRANSPORTER,
+                to:email,
+                subject:`You've just reserve a spot on Spa online`,
+                text:`Hello ${username},\n You have just book a spot on spa online, our customer service will contact you shortly via a phone call for more details. \n Welcome`
+            }
+            mailTranporter.sendMail(details,(error:any)=>{
+                if(error){
+                    res.send({error:`Got an error sending email to client, retrying shortly!`});
+                }
+            })
+        }else{
+            res.status(501).send({error:"You cannot reserve a spot now, try again later!"})
         }
     } catch (error:any) {
         res.status(500).send({error:error.message})
