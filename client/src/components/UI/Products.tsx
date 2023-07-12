@@ -40,7 +40,7 @@ const Products=()=>{
         }
     ]
     return(
-        <div className="flex py-20 flex-col items-center bg-transparent" id="about">
+        <div className="flex py-20 flex-col items-center bg-transparent" id="product">
             <p className="text-xl font-semibold text-[#F45858]"> Product </p>
             <p className="text-4xl max-sm:text-2xl text-center mt-6 w-[50vw] max-sm:w-[80vw] font-semibold text-[#333333]">
                 Our best product this week, that can change your life
