@@ -21,7 +21,7 @@ async function register_user(req:User_register,res:any){
             })
             if(register_user){
                 res.status(201).send({
-                    msg:"User registered",
+                    msg:"Successfull registration\nRedirecting to profile page soon...",
                     data:{
                         id:register_user.id,
                         last_name:register_user.last_name,
@@ -51,7 +51,7 @@ async function login_user(req:User_login,res:any){
             const user=await user_model.findOne({email});
             if(user&&(await bcrypt.compare(password,`${user.password}`))){
                 res.status(200).send({
-                    msg:`Welcome ${user.first_name} ${user.last_name}`,
+                    msg:`Welcome ${user.first_name} ${user.last_name}\nRedirecting to profile page soon...`,
                     data:{
                         _id:user.id,
                         first_name:user.first_name,
