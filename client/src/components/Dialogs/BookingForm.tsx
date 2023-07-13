@@ -37,12 +37,12 @@ function BookingForm(props:Props) {
                 })
             })
             const parseRes=await response.json();
+            e.target.reset();
             if(parseRes.error){
                 setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
                 setReserve_btn("Try again later")
             }else{
 
-                e.target.reset();
                 dialog_close();
             }
         } catch (error:any) {

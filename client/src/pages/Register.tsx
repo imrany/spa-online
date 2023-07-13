@@ -48,6 +48,7 @@ function Register(props:Props) {
                 loader.off()
                 const parseRes=await response.json()
                 if(parseRes.error){
+                    console.log(parseRes)
                     setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
                     const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
                     dialogElement.showModal()

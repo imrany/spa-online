@@ -7,8 +7,7 @@ const reserve_schema=new Schema({
     },
     email:{
         type:String,
-        require:true,
-        unique:true
+        require:true
     },
     phone_number:{
         type:Number,

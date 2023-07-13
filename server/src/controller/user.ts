@@ -8,40 +8,35 @@ import { createTransport } from "nodemailer"
 async function register_user(req:User_register,res:any){
     try {
         const {last_name,first_name,email,phone_number,password,location}=req.body
-        const check_user_exist=user_model.findOne({email})
-        if(!check_user_exist){
-            if(last_name&&first_name&&email&&phone_number&&password){
-                const salt=await bcrypt.genSalt(10);
-                const hashed_password=await bcrypt.hash(password,salt);
-                const register_user=await user_model.create({
-                    last_name,
-                    first_name,
-                    email,
-                    phone_number,
-                    password:hashed_password,
-                    location
+        if(last_name&&first_name&&email&&phone_number&&password){
+            const salt=await bcrypt.genSalt(10);
+            const hashed_password=await bcrypt.hash(password,salt);
+            const register_user=await user_model.create({
+                last_name,
+                first_name,
+                email,
+                phone_number,
+                password:hashed_password,
+                location
+            })
+            if(register_user){
+                res.status(201).send({
+                    msg:"User registered",
+                    user_data:{
+                        id:register_user.id,
+                        last_name:register_user.last_name,
+                        first_name:register_user.first_name,
+                        email:register_user.email,
+                        phone_number:register_user.phone_number,
+                        location:register_user.location,
+                        token:generateUserToken(register_user.id)
+                    }
                 })
-                if(register_user){
-                    res.status(201).send({
-                        msg:"User registered",
-                        user_data:{
-                            id:register_user.id,
-                            last_name:register_user.last_name,
-                            first_name:register_user.first_name,
-                            email:register_user.email,
-                            phone_number:register_user.phone_number,
-                            location:register_user.location,
-                            token:generateUserToken(register_user.id)
-                        }
-                    })
-                }else{
-                    res.status(401).send({error:"User not registered"})
-                }
             }else{
-                res.status(400).send({error:"Enter all the required fields!"})
+                res.status(401).send({error:"User not registered"})
             }
         }else{
-            res.send({error:"Cannot register this user, this user exist!!"})
+            res.status(400).send({error:"Enter all the required fields!"})
         }
     } catch (error:any) {
         res.status(500).send({error:error.message})
@@ -83,28 +78,29 @@ async function reserve (req:any,res:any) {
         const book=await reserve_model.create({
             email,phone_number,username,date_time
         })
-        if(book){
-            let mailTranporter=createTransport({
-                service:'gmail',
-                auth:{
-                    user:process.env.TRANSPORTER,
-                    pass:process.env.PASSWORD
-                }
-            });
-            let details={
-                from:process.env.TRANSPORTER,
-                to:email,
-                subject:`You've just reserve a spot on Spa online`,
-                text:`Hello ${username},\n You have just book a spot on spa online, our customer service will contact you shortly via a phone call for more details. \n Welcome`
+
+        let mailTranporter=createTransport({
+            service:'gmail',
+            auth:{
+                user:process.env.TRANSPORTER,
+                pass:process.env.PASSWORD
             }
-            mailTranporter.sendMail(details,(error:any)=>{
-                if(error){
-                    res.send({error:`Got an error sending email to client, retrying shortly!`});
-                }
-            })
-        }else{
-            res.status(501).send({error:"You cannot reserve a spot now, try again later!"})
+        });
+        let details={
+            from:process.env.TRANSPORTER,
+            to:email,
+            subject:`You've just reserve a spot on Spa online`,
+            text:`Hello ${username},\n\nYou have just book a spot on Spa online,\nour customer service will contact you shortly via a phone call for more details. \nOr call +254734720752`
         }
+        mailTranporter.sendMail(details,(error:any)=>{
+            if(error){
+                res.send({error:`Got an error sending email to client, retrying shortly!`});
+            }else{
+                if(!book){
+                    res.status(501).send({error:"You cannot reserve a spot now, try again later!"})
+                }
+            }
+        })
     } catch (error:any) {
         res.status(500).send({error:error.message})
     }
