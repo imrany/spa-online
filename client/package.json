@@ -3,7 +3,6 @@
   "description": "Our spa website",
   "version": "0.1.0",
   "type": "module",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +16,6 @@
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.13.0",
-    "react-scripts": "5.0.1",
     "react-select": "^5.7.3",
     "react-slick": "^0.29.0",
     "remixicon": "^3.3.0",
@@ -39,10 +37,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "clean":"rm -rf clean",
+    "clean": "rm -rf dist",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "react-scripts test"
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [
