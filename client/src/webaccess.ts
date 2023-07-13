@@ -11,3 +11,7 @@ const errorCallback=(error:any)=>{
 window.onload=()=>{
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
+
+export {
+    
+}
