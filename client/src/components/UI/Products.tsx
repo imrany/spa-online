@@ -5,7 +5,6 @@ import image4 from "../../assets/images/whitelady-massage.jpg";
 import image5 from "../../assets/images/blackwomen-massage.jpg";
 import image6 from "../../assets/images/bg-stone.jpg";
 
-
 const Products=()=>{
     const products=[
         {

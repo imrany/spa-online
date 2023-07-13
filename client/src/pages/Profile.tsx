@@ -1,7 +1,7 @@
 // @flow strict
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 function Profile() {
-    const {email}=useParams()
+    // const {email}=useParams()
     return (
         <div>
             

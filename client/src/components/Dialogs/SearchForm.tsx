@@ -15,7 +15,7 @@ const SearchForm=(props:Props)=>{
     async function handleSearch(e:any) {
         e.preventDefault()
         try {
-            const search=e.target.search.value;
+            // const search=e.target.search.value;
            
 
             e.target.reset();

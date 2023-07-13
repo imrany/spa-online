@@ -2,7 +2,6 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
-import { useState } from "react";
 import { Usercontext } from "./UserContext";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AnimatePresence } from "framer-motion"
@@ -16,14 +15,14 @@ const queryClient=new QueryClient()
 
 function App() {
   // const location=useLocation()
-  const [user_content,setUser_content]=useState({
+  const user_content={
     id:"",
     last_name:"",
     first_name:"",
     phone_number:0,
     email:"",
     token:"",
-  })
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <Usercontext.Provider value={user_content}>

@@ -1,11 +1,11 @@
 // @flow strict
 
-import { useContext } from 'react';
-import { Usercontext } from '../../UserContext';
+// import { useContext } from 'react';
+// import { Usercontext } from '../../UserContext';
 import { Link } from 'react-router-dom';
 
 function Nav() {
-    const {email}=useContext(Usercontext)
+    // const {email}=useContext(Usercontext)
     
     function openNav() {
         const menu=document.getElementById("menu") as HTMLDivElement;

@@ -1,6 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {motion} from "framer-motion"
-import { useState } from 'react';
 
 const variants = {
     open: { 
@@ -13,9 +12,7 @@ const variants = {
 }
 
 const ForgetPassword=()=>{
-    const navigate=useNavigate()
-    const [isOpen, setIsOpen] = useState(true)
-
+    const isOpen=true;
     async function handleSubmit(e:any) {
         try {
             
@@ -24,10 +21,6 @@ const ForgetPassword=()=>{
         }
     }
 
-    const to_register=()=>{
-        setIsOpen(isOpen => !isOpen)
-        navigate("/auth/register")
-    }
     return(
         <div className="w-[50vw] text-[#333333] flex flex-col items-center justify-center max-[1000px]:w-[100vw]">
         <motion.div 

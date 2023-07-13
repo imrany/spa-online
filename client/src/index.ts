@@ -8,10 +8,4 @@ const errorCallback=(error:any)=>{
     console.log(error.message);
 }
 
-window.onload=()=>{
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-}
-
-export {
-    
-}
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
