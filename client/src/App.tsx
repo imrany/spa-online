@@ -11,6 +11,7 @@ import HomePage from "./pages/HomePage";
 import UserLogin from "./components/Dialogs/UserLogin";
 import BookingForm from "./components/Dialogs/BookingForm";
 import { status } from "./components/status";
+import SearchForm from "./components/Dialogs/SearchForm";
 const queryClient=new QueryClient()
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           </AnimatePresence>
           <UserLogin/>
           <BookingForm status={status()}/>
+          <SearchForm status={status()}/>
         </Router>
       </Usercontext.Provider>
     </QueryClientProvider>

@@ -2,7 +2,10 @@
 import { useEffect, useState } from "react";
 
 function status() {
-    const [status,setStatus]=useState({})
+    const [status,setStatus]=useState({
+        value:false,
+        text:""
+    })
     useEffect(()=>{
         if (navigator.onLine) {
             setStatus({

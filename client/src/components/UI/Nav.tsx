@@ -21,6 +21,10 @@ function Nav() {
         const dialogElement=document.getElementById("user-dialog") as HTMLDialogElement
         dialogElement.showModal()
     }
+    const dialog_search_open=()=>{
+        const dialogElement=document.getElementById("search-dialog") as HTMLDialogElement
+        dialogElement.showModal()
+    };
     return (
         <>
             <nav className="flex justify-between py-6 border-b-[1px] max-lg:px-4" style={{borderBottomColor:"#8o8o8o"}}>
@@ -32,9 +36,9 @@ function Nav() {
                         <Link to="/features" className='hover:text-[#333333]'>Features</Link>
                 </div>
                 <div className="flex text-base" style={{color:"#808080"}} id='nav-items'>
-                        <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
+                        <div onClick={dialog_search_open} className='cursor-pointer hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
                             <i className='ri-search-line'></i>
-                        </Link>
+                        </div>
                         <Link to="/" className='hover:bg-[#333333] hover:text-[#FFFCF8] hover:rounded-[50px] px-2 py-1'>
                             <i className='ri-notification-line'></i>
                         </Link>
