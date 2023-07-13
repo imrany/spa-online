@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import {motion} from "framer-motion"
 import { useState } from 'react';
 import { loader } from '../components/func';
+import ErrorDialog from '../components/Dialogs/ErrorDialog';
 type Props={
     status:{
         value:boolean,
@@ -23,7 +24,7 @@ const variants = {
 function Login(props:Props) {
     const navigate=useNavigate()
     const [isOpen, setIsOpen] = useState(true)
-
+    const [error,setError]=useState(<></>)
     const handleSubmit=async(e:any)=>{
         e.preventDefault()
         loader.on()
@@ -42,16 +43,22 @@ function Login(props:Props) {
             loader.off()
             const parseRes=await response.json()
             if(parseRes.error){
-                console.log(parseRes.error)
+                setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
+                const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                dialogElement.showModal()
             }else{
                 console.log(parseRes)
             }
         } catch (error:any) {
             loader.off()
             if(!props.status.value){
-                console.log(props.status.text)
+                setError(<p className="text-center text-sm text-red-400">{props.status.text}</p>)
+                const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                dialogElement.showModal()
             }else{
-                console.log(error.message)
+                setError(<p className="text-center text-sm text-red-400">{error.message}</p>)
+                const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                dialogElement.showModal()
             }
         }
     }
@@ -91,6 +98,7 @@ function Login(props:Props) {
                     <i className='ri-arrow-left-line mr-1'></i>
                     Not now
                 </Link>
+                <ErrorDialog message={error}/>
             </motion.div>
         </div>
     );

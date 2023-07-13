@@ -3,6 +3,7 @@ import {motion} from "framer-motion"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { loader } from "../components/func"
+import ErrorDialog from "../components/Dialogs/ErrorDialog"
 type Props={
     status:{
         value:boolean,
@@ -11,7 +12,7 @@ type Props={
 }
 
 function Register(props:Props) {
-    const [error,setError]=useState("")
+    const [error,setError]=useState(<></>)
     const [location,setLocation]=useState("")
     
     function checkLocation() {
@@ -28,8 +29,8 @@ function Register(props:Props) {
             const confirm_password=e.target.confirm_password.value;
             if(password===confirm_password){
                 loader.on()
-                setError("")
-                let url=`http://localhost:3000/api/auth/register`
+                setError(<></>)
+                let url=`http://localhost:8000/api/auth/register`
                 const response=await fetch(url,{
                     method:"POST",
                     headers:{
@@ -47,19 +48,25 @@ function Register(props:Props) {
                 loader.off()
                 const parseRes=await response.json()
                 if(parseRes.error){
-                    console.log(parseRes.error)
+                    setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
+                    const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                    dialogElement.showModal()
                 }else{
                     console.log(parseRes)
                 }
             }else{
-                setError("Doesn't match with password!")
+                setError(<span className="text-center text-sm text-red-400 font-normal max-md:text-xs">Doesn't match with password!</span>)
             }
         } catch (error:any) {
             loader.off()
             if(!props.status.value){
-                console.log(props.status.text)
+                setError(<p className="text-center text-sm text-red-400">{props.status.text}</p>)
+                const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                dialogElement.showModal()
             }else{
-                console.log(error.message)
+                setError(<p className="text-center text-sm text-red-400">{error.message}</p>)
+                const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                dialogElement.showModal()
             }
         }
     }
@@ -74,7 +81,9 @@ function Register(props:Props) {
             step_1.style.display="none"
             step_2.style.display="flex"
         } else {
-            alert("Enter all the required field")
+            setError(<p className="text-center text-sm text-red-400">Enter all the required field</p>)
+            const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+            dialogElement.showModal()
         }
 
     }
@@ -105,9 +114,9 @@ function Register(props:Props) {
                     <input type="email" name="email" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter email address" required/>
                     <label htmlFor="password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4">Password</label>
                     <input type="password" minLength={8}  name="password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="Enter password" required/>
-                    <label htmlFor="confirm_password" className="text-[#808080] font-semibold text-lg max-md:text-base mt-4 flex justify-between">
-                        <span>confirm password</span>
-                        <span className="text-center text-sm text-red-400 font-normal max-md:text-xs">{error}</span>
+                    <label htmlFor="confirm_password" className="text-[#808080] text-lg max-md:text-base mt-4 flex justify-between">
+                        <span className="font-semibold">confirm password</span>
+                        {error}
                     </label>
                     <input type="password" minLength={8} name="confirm_password" className="mt-2 border-gray-300 border-[1px] bg-white rounded-lg focus:outline-1 focus:outline-[#F7B941] py-2 px-4 placeholder:text-base text-base" placeholder="confirm password" required/>
                     <label htmlFor="location_checkbox" className="text-[#808080] text-base mt-4 flex">
@@ -126,6 +135,7 @@ function Register(props:Props) {
                     <i className='ri-arrow-left-line mr-1'></i>
                     Not now
                 </Link>
+                <ErrorDialog message={error}/>
             </motion.form>
         </div>
     );
