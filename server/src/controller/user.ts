@@ -22,7 +22,7 @@ async function register_user(req:User_register,res:any){
             if(register_user){
                 res.status(201).send({
                     msg:"User registered",
-                    user_data:{
+                    data:{
                         id:register_user.id,
                         last_name:register_user.last_name,
                         first_name:register_user.first_name,
@@ -30,7 +30,8 @@ async function register_user(req:User_register,res:any){
                         phone_number:register_user.phone_number,
                         location:register_user.location,
                         token:generateUserToken(register_user.id)
-                    }
+                    },
+                    next:"/"
                 })
             }else{
                 res.status(401).send({error:"User not registered"})
@@ -59,7 +60,8 @@ async function login_user(req:User_login,res:any){
                         phone_number:user.phone_number,
                         location:user.location,
                         token:generateUserToken(user.id)
-                    }
+                    },
+                    next:"/"
                 })
             }else{
                 res.status(400).send({error:'Invalid Credentials'})
