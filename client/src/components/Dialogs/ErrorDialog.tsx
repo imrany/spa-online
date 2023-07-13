@@ -14,9 +14,9 @@ const ErrorDialog=(props:Props)=>{
     },8000)
     return(
         <dialog id="error-dialog" className="shadow-lg rounded-md flex flex-col lg:w-[35vw] max-md:w-[80vw] max-sm:w-[75vw] h-fit text-[#808080] max-sm:scale-[0.5]">
-            <button onClick={dialog_close} className="ml-[auto]">
+            {/* <button onClick={dialog_close} className="ml-[auto]">
                 <i className="ri-close-fill ri-lg hover:text-[#F45858]"></i>
-            </button>
+            </button> */}
             {props.message}
         </dialog>
     )

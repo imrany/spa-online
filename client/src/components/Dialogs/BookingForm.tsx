@@ -15,11 +15,14 @@ function BookingForm(props:Props) {
     const dialog_close=()=>{
         const dialogElement=document.getElementById("booking-dialog") as HTMLDialogElement
         dialogElement.close()
+        setError(<p className="text-center text-lg">Reserve your spot</p>)
+        setReserve_btn("Reserve spot")
     };
 
     async function handleSubmit(e:any){
         e.preventDefault()
         try {
+            setReserve_btn("Sending...")
             const username=e.target.username.value;
             const phone_number=e.target.phone_number.value;
             const email=e.target.email.value;
@@ -42,7 +45,8 @@ function BookingForm(props:Props) {
                 setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
                 setReserve_btn("Try again later")
             }else{
-
+                console.log(parseRes)
+                setError(<p className="text-center text-lg">Reserve your spot</p>)
                 dialog_close();
             }
         } catch (error:any) {

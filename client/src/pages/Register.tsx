@@ -1,7 +1,7 @@
 // @flow strict
 import {motion} from "framer-motion"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { loader } from "../components/func"
 import ErrorDialog from "../components/Dialogs/ErrorDialog"
 type Props={
@@ -12,6 +12,7 @@ type Props={
 }
 
 function Register(props:Props) {
+    const navigate=useNavigate()
     const [error,setError]=useState(<></>)
     const [location,setLocation]=useState("")
     
@@ -48,12 +49,15 @@ function Register(props:Props) {
                 loader.off()
                 const parseRes=await response.json()
                 if(parseRes.error){
-                    console.log(parseRes)
                     setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
                     const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
                     dialogElement.showModal()
                 }else{
-                    console.log(parseRes)
+                    console.log(parseRes.data)
+                    setError(<p className="text-center text-sm text-green-400">{parseRes.msg}</p>)
+                    setTimeout(()=>{
+                        navigate(parseRes.next)
+                    },10000)
                 }
             }else{
                 setError(<span className="text-center text-sm text-red-400 font-normal max-md:text-xs">Doesn't match with password!</span>)

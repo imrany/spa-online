@@ -47,7 +47,13 @@ function Login(props:Props) {
                 const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
                 dialogElement.showModal()
             }else{
-                console.log(parseRes)
+                console.log(parseRes.data)
+                setError(<p className="text-center text-sm text-green-400">{parseRes.msg}</p>)
+                const dialogElement=document.getElementById("error-dialog") as HTMLDialogElement
+                dialogElement.showModal()
+                setTimeout(()=>{
+                    navigate(parseRes.next)
+                },10000)
             }
         } catch (error:any) {
             loader.off()
