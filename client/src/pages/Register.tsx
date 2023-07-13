@@ -2,8 +2,15 @@
 import {motion} from "framer-motion"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { loader } from "../components/func"
+type Props={
+    status:{
+        value:boolean,
+        text:string
+    }
+}
 
-function Register() {
+function Register(props:Props) {
     const [error,setError]=useState("")
     const [location,setLocation]=useState("")
     
@@ -20,7 +27,9 @@ function Register() {
             const password=e.target.password.value;
             const confirm_password=e.target.confirm_password.value;
             if(password===confirm_password){
-                let url=``
+                loader.on()
+                setError("")
+                let url=`http://localhost:3000/api/auth/register`
                 const response=await fetch(url,{
                     method:"POST",
                     headers:{
@@ -35,6 +44,7 @@ function Register() {
                         location
                     })
                 })
+                loader.off()
                 const parseRes=await response.json()
                 if(parseRes.error){
                     console.log(parseRes.error)
@@ -45,7 +55,12 @@ function Register() {
                 setError("Doesn't match with password!")
             }
         } catch (error:any) {
-            console.log(error.message)
+            loader.off()
+            if(!props.status.value){
+                console.log(props.status.text)
+            }else{
+                console.log(error.message)
+            }
         }
     }
     const next=()=>{

@@ -3,7 +3,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 import {motion} from "framer-motion"
 import { useState } from 'react';
-
+import { loader } from '../components/func';
+type Props={
+    status:{
+        value:boolean,
+        text:string
+    }
+}
 const variants = {
     open: { 
         x: 1
@@ -14,12 +20,13 @@ const variants = {
     },
 }
 
-function Login() {
+function Login(props:Props) {
     const navigate=useNavigate()
     const [isOpen, setIsOpen] = useState(true)
 
     const handleSubmit=async(e:any)=>{
         e.preventDefault()
+        loader.on()
         try {
             let url=`http://localhost:8000/api/auth/login`
             const response=await fetch(url,{
@@ -32,6 +39,7 @@ function Login() {
                     password:e.target.password.value
                 })
             })
+            loader.off()
             const parseRes=await response.json()
             if(parseRes.error){
                 console.log(parseRes.error)
@@ -39,7 +47,12 @@ function Login() {
                 console.log(parseRes)
             }
         } catch (error:any) {
-            console.log(e.message)
+            loader.off()
+            if(!props.status.value){
+                console.log(props.status.text)
+            }else{
+                console.log(error.message)
+            }
         }
     }
     const to_register=()=>{
