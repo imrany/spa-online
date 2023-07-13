@@ -31,7 +31,7 @@ function Register(props:Props) {
             if(password===confirm_password){
                 loader.on()
                 setError(<></>)
-                let url=`http://localhost:8000/api/auth/register`
+                let url=`https://spa-online-server.onrender.com/api/auth/register`
                 const response=await fetch(url,{
                     method:"POST",
                     headers:{

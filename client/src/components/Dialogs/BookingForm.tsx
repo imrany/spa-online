@@ -26,7 +26,7 @@ function BookingForm(props:Props) {
             const username=e.target.username.value;
             const phone_number=e.target.phone_number.value;
             const email=e.target.email.value;
-            const url=`http://localhost:8000/api/book`;
+            const url=`https://spa-online-server.onrender.com/api/book`;
             const response=await fetch(url,{
                 method:"POST",
                 headers:{
