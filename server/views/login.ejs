@@ -1,0 +1,63 @@
+<html lang="en">
+<%- include('./partials/head.ejs')%>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        font-size:medium;
+    }
+    input{
+        padding: 6px;
+        margin: 4px 0;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+    input:focus{
+        outline-width: 1px;
+        outline-color: seagreen;
+    }
+    button{
+        border: none;
+        background: green;
+        border-radius: 5px;
+        color: white;
+        height: 30px;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    label{
+        color: #808080;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        margin-top: 5px;
+    }
+    @media screen and (max-width:800px) {
+        form{
+            width: 70vw;
+        }   
+    }
+</style>
+<body>
+    <form>
+        <h3>Spa online</h3>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email"/>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password"/>
+        <button>Submit</button>
+    </form>
+    <!-- script -->
+    <script>
+
+    </script>
+</body>
+</html>
