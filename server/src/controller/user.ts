@@ -100,6 +100,8 @@ async function reserve (req:any,res:any) {
             }else{
                 if(!book){
                     res.status(501).send({error:"You cannot reserve a spot now, try again later!"})
+                }else{
+                    res.status(200).send(book)
                 }
             }
         })
