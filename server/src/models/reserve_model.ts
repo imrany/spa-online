@@ -16,6 +16,10 @@ const reserve_schema=new Schema({
     date_time:{
         type:String,
         require:true
+    },
+    sorted:{
+        type:Boolean,
+        default:false,
     }
 },{
     timestamps:true
