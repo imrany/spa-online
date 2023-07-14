@@ -181,7 +181,8 @@ async function login_admin(req:any,res:any){
                         _id:admin.id,
                         email:admin.email, 
                         token:generateUserToken(admin.id)
-                    }
+                    },
+                    next:"/"
                 })
             }else{
                 res.status(400).send({error:'Invalid Credentials'})
@@ -197,5 +198,7 @@ export {
     register_user,
     login_user,
     protect_user,
-    reserve
+    reserve,
+    login_admin,
+    register_admin
 }
