@@ -49,15 +49,25 @@
 <body>
     <form>
         <h3>Spa online</h3>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Email"/>
+        <label for="email">
+            Email
+            <span style="color: rgb(247, 114, 114); margin-left: 5px;">(must be an admin email)</span>
+        </label>
+        <input type="email" name="email" id="email" placeholder="Email" required/>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password"/>
+        <input type="password" name="password" id="password" minlength=8 required/>
         <button>Submit</button>
     </form>
     <!-- script -->
     <script>
+        document.querySelector("form").addEventListener("submit",async(e)=>{
+            e.preventDefault()
+            try {
 
+            } catch (error) {
+                
+            }
+        })
     </script>
 </body>
 </html>
