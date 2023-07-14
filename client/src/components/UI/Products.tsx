@@ -1,40 +1,40 @@
-import image1 from "../../assets/images/Add-ons.jpg";
-import image2 from "../../assets/images/whitelady-face-massage.jpg";
-import image3 from "../../assets/images/whitelady-face-massage2.jpg";
+import coconut from "../../assets/images/coconut.jpg";
+import image2 from "../../assets/images/Add-ons.jpg";
+import soap from "../../assets/images/soap.jpg";
 import image4 from "../../assets/images/whitelady-massage.jpg";
 import image5 from "../../assets/images/blackwomen-massage.jpg";
-import image6 from "../../assets/images/bg-stone.jpg";
+import image6 from "../../assets/images/brushes.jpg";
 
 const Products=()=>{
     const products=[
         {
-            title:" Natural Oil",
-            body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, consequatur hic. Perspiciatis id reprehenderit commodi aspernatur reiciendis error necessitatibus ipsam.",
-            image:image1
+            title:"Coconut Oil",
+            body:"Coconut oil helps to hydrate skin and reinforce its natural defensive barrier to better retain moisture which means coconut oil for dry skin is fantastic. Purchase this product via our store or online.",
+            image:coconut
         },
         {
-            title:" Natural Oil",
-            body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, consequatur hic. Perspiciatis id reprehenderit commodi aspernatur reiciendis error necessitatibus ipsam.",
+            title:"Palm Oil",
+            body:"Palm Oil restores hydration to dry skin, preventing further dryness by sealing in moisture. Suitable for use on sensitive skin, it effectively nourishes areas afflicted by eczema, psoriasis, and stretch marks.",
             image:image2
         },
         {
-            title:" Natural Oil",
-            body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, consequatur hic. Perspiciatis id reprehenderit commodi aspernatur reiciendis error necessitatibus ipsam.",
-            image:image3
+            title:"Soaps",
+            body:"We use variety of soaps created on different recipe. Purchase this item here.",
+            image:soap
         },
         {
-            title:" Natural Oil",
-            body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, consequatur hic. Perspiciatis id reprehenderit commodi aspernatur reiciendis error necessitatibus ipsam.",
+            title:"Spa stones",
+            body:"Hot stone therapy is a specialist massage that uses smooth, flat, heated basalt stones that are positioned along your spine, in the palms of your hands, along your legs and between the toes.",
             image:image4
         },
         {
-            title:" Natural Oil",
-            body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, consequatur hic. Perspiciatis id reprehenderit commodi aspernatur reiciendis error necessitatibus ipsam.",
+            title:"Lotions",
+            body:"Our Sensual Body Lotion blends the essential oils of nature's most potent aphrodisiacs with a collection of intense botanical moisturisers.",
             image:image5
         },
         {
-            title:" Natural Oil",
-            body:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, consequatur hic. Perspiciatis id reprehenderit commodi aspernatur reiciendis error necessitatibus ipsam.",
+            title:"Brushes",
+            body:"Our brushes helps for exfoliation, the coarse bristles can brush away dry, dead cells from the skin. This can leave your skin more smooth and soft.",
             image:image6
         }
     ]

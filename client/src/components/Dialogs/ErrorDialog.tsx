@@ -7,7 +7,7 @@ const ErrorDialog=(props:Props)=>{
         dialogElement.close()
     },8000)
     return(
-        <dialog id="error-dialog" className="shadow-lg rounded-md flex flex-col lg:w-[35vw] max-md:w-[80vw] max-sm:w-[75vw] h-fit text-[#808080] max-sm:scale-[0.5]">
+        <dialog id="error-dialog" className="shadow-lg rounded-md flex flex-col lg:w-[35vw] max-md:w-[80vw] max-sm:w-[75vw] h-fit text-[#808080] max-sm:scale-[1.0]">
             {props.message}
         </dialog>
     )

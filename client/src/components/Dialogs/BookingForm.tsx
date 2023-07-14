@@ -9,7 +9,8 @@ type Props={
 
 function BookingForm(props:Props) {
     const date=new Date()
-    const date_time=`${date.getHours()}:${date.getMinutes()} - ${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+    const min=date.getMinutes()<10?`0${date.getMinutes()}`:date.getMinutes()
+    const date_time=`${date.getHours()}:${min} - ${date.getDate()}/${1+date.getMonth()}/${date.getFullYear()}`
     const [reserve_btn,setReserve_btn]=useState("Reserve spot")
     const [error,setError]=useState(<p className="text-center text-lg">Reserve your spot</p>)
     const dialog_close=()=>{
@@ -40,12 +41,12 @@ function BookingForm(props:Props) {
                 })
             })
             const parseRes=await response.json();
-            e.target.reset();
             if(parseRes.error){
                 setError(<p className="text-center text-sm text-red-400">{parseRes.error}</p>)
                 setReserve_btn("Try again later")
             }else{
                 console.log(parseRes)
+                e.target.reset();
                 setError(<p className="text-center text-lg">Reserve your spot</p>)
                 dialog_close();
             }
