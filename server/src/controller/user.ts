@@ -4,7 +4,6 @@ import * as jwt from "jsonwebtoken"
 import { User_login, User_register } from "../types"
 import { reserve_model } from "../models/reserve_model"
 import { createTransport } from "nodemailer"
-import { admin_model } from "../models/admin_model"
 
 async function register_user(req:User_register,res:any){
     try {
@@ -138,57 +137,18 @@ async function protect_user(req:any,res:any,next:any){
     }
 };
 
-async function register_admin(req:any,res:any){
-    try {
-        const {email,password}=req.body
-        if(email&&password){
-            const salt=await bcrypt.genSalt(10);
-            const hashed_password=await bcrypt.hash(password,salt);
-            const register_admin=await admin_model.create({
-                email,
-                password:hashed_password,
-            })
-            if(register_admin){
-                res.status(201).send({
-                    data:{
-                        id:register_admin.id,
-                        email:register_admin.email,
-                        token:generateUserToken(register_admin.id)
-                    }
-                })
-            }else{
-                res.status(401).send({error:"Admin not registered"})
-            }
-        }else{
-            res.status(400).send({error:"Enter all the required fields!"})
-        }
-    } catch (error:any) {
-        res.status(500).send({error:error.message})
-    }
-}
 
 async function login_admin(req:any,res:any){
     try {
         const {email,password,last_login}=req.body
-        if(email&&password){
-            const admin=await admin_model.findOne({email});
-            if(admin&&(await bcrypt.compare(password,`${admin.password}`))){
-                await admin_model.findOneAndUpdate({email},{
-                    last_login
-                })
-                res.status(200).send({
-                    data:{
-                        _id:admin.id,
-                        email:admin.email, 
-                        token:generateUserToken(admin.id)
-                    },
-                    next:"/"
-                })
-            }else{
-                res.status(400).send({error:'Invalid Credentials'})
-            }
+        if(email===process.env.ADMIN_EMAIL&&password===process.env.ADMIN_PASSWORD){
+            res.send({
+                data:{
+                    token:generateUserToken(password)
+                }
+            })
         }else{
-            res.status(401).send({error:"Enter all the required fields!"})
+            res.status(400).send({error:'Invalid Credentials'})
         }
     } catch (error:any) {
         res.status(500).send({error:error.message})
@@ -199,6 +159,5 @@ export {
     login_user,
     protect_user,
     reserve,
-    login_admin,
-    register_admin
+    login_admin
 }
