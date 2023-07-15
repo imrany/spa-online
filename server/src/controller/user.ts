@@ -145,7 +145,8 @@ async function login_admin(req:any,res:any){
             res.send({
                 data:{
                     token:generateUserToken(password)
-                }
+                },
+                next:"/admin"
             })
         }else{
             res.status(400).send({error:'Invalid Credentials'})

@@ -80,8 +80,11 @@
                     alert(parseRes.error)
                 }else{
                     console.log(parseRes)
+                    const stringify=JSON.stringify(parseRes.data)
+                    localStorage.setItem('data',stringify)
                     setTimeout(()=>{
                         window.location.href=`${parseRes.next}`
+                        e.target.reset()
                     },500)
                 }
             } catch (error) {

@@ -16,12 +16,12 @@ app.use("/api",router)
 app.use(views)
 
 //connect to momgodb
-const port=process.env.PORT||8000;
-app.listen(port,()=>{
-    console.log(`Server opening at Port ${port}`)
-})
 mongoose.set('strictQuery', false);
 mongoose.connect(`${process.env.DATABASE_URL}`).then(()=>{
     //listening to server
+    const port=process.env.PORT||8000;
+    app.listen(port,()=>{
+        console.log(`Server opening at Port ${port}`)
+    })
 }).catch(err=>console.log(err));
 mongoose.Promise=global.Promise;
