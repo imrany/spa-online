@@ -47,13 +47,13 @@ Starting 10th July Monday -
 
 > All phases
 
-- [x] 1st week frontend development.
+- [x] 1st frontend development.
 
-- [ ] 2nd week backend development.
+- [x] 2nd backend development.
 
-- [ ] 3rd week database
+- [x] 3rd database
 
-- [ ] Deployment
+- [x] Deployment
 
 
 # 🤝 To Contribute
